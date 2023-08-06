@@ -6,4 +6,7 @@ clusters <- hclust(distance_matrix,
 
 plot(clusters)
 
-cutree(clusters,k=20) %>% sort()
+cluster_data <- coalesced_data[,1]
+cluster_data$k10 <- cutree(clusters,k=10)[cluster_data$`Subdivision ID`]
+cluster_data$k20 <- cutree(clusters,k=20)[cluster_data$`Subdivision ID`]
+cluster_data$k50 <- cutree(clusters,k=50)[cluster_data$`Subdivision ID`]
